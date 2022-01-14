@@ -9,12 +9,15 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon -r dotenv/config index.js dotenv_config_path=./config/.env"
+    "server": "nodemon -r dotenv/config index.js dotenv_config_path=./config/.env",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "cookie-session": "^2.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
