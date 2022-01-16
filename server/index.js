@@ -5,6 +5,7 @@ const passport = require('passport');
 require('./models/user');
 require('./services/passport');
 const authRoutes = require('./routes/authRoutes');
+const billingRoutes = require('./routes/billingRoutes');
 const keys = require('./config/keys');
 
 mongoose.connect(keys.mongoURI);
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+app.use(express.json());
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -23,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authRoutes);
+app.use(billingRoutes);
 
 const start = () => {
   if (!process.env.GOOGLE_CLIENT_ID) {
