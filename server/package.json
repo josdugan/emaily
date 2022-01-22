@@ -25,6 +25,7 @@
     "mongoose": "^6.1.5",
     "passport": "^0.5.2",
     "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^8.197.0"
   },
   "devDependencies": {
